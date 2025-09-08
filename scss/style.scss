@@ -1,0 +1,1526 @@
+@use "variable" as var;
+@use "mixin" as mix;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+hr {
+  @include mix.breakpoint(xm) {
+    display: none;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+.header {
+  .desktop-hide {
+    img {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.mm-wrapper--opened {
+  .desktop-hide {
+    img {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.mm-wrapper--opened {
+  .desktop-hide {
+    img {
+      &:last-child {
+        display: block;
+        padding-left: 10px;
+      }
+    }
+  }
+}
+.mm-menu--opened {
+  .mm-panel--noanimation {
+    background: linear-gradient(
+      to right,
+      rgba(142, 8, 87, 1) 57%,
+      rgba(64, 3, 97, 1) 91%
+    );
+    text-align: center;
+  }
+}
+.mm-menu a,
+.mm-menu a:active,
+.mm-menu a:hover,
+.mm-menu a:link,
+.mm-menu a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+.mm-navbar {
+  color: #fff;
+  background: linear-gradient(
+    to right,
+    rgba(142, 8, 87, 1) 57%,
+    rgba(64, 3, 97, 1) 91%
+  );
+  text-align: center;
+}
+.mm-searchfield__input input,
+.mm-searchfield__input input:focus,
+.mm-searchfield__input input:hover {
+  background: var(--mm-color-background-highlight);
+  color: #fff;
+}
+.mm-searchfield__input input::placeholder {
+  color: #fff;
+}
+
+#page {
+  overflow: hidden;
+}
+
+.top-section {
+  @input mix.container;
+  float: left;
+  width: 100%;
+  height: 802px;
+  position: relative;
+  @include mix.breakpoint(lg) {
+    height: 574px;
+  }
+  @include mix.breakpoint(sm) {
+    height: 500px;
+  }
+
+  &:after {
+    position: absolute;
+    content: "";
+    background: url(../images/bn.png) no-repeat left top;
+    background-size: 100% 802px;
+    height: 802px;
+    left: 0;
+    right: 0;
+    top: 0;
+    @include mix.breakpoint(lg) {
+      background: linear-gradient(
+        to right,
+        rgba(142, 8, 87, 1) 57%,
+        rgba(64, 3, 97, 1) 91%
+      );
+      height: 575px;
+    }
+    @include mix.breakpoint(sm) {
+      background: linear-gradient(
+        to right,
+        rgba(142, 8, 87, 1) 57%,
+        rgba(64, 3, 97, 1) 91%
+      );
+    }
+
+    @include mix.breakpoint(xxs) {
+      background: linear-gradient(
+        to right,
+        rgba(142, 8, 87, 1) 57%,
+        rgba(64, 3, 97, 1) 91%
+      );
+
+      background: linear-gradient(
+        to right,
+        rgba(142, 8, 87, 1) 57%,
+        rgba(64, 3, 97, 1) 91%
+      );
+      height: 500px;
+    }
+  }
+
+  .img {
+    background-size: cover !important;
+    width: 46%;
+    height: 603px;
+    position: absolute;
+    right: 20px;
+    top: 86px;
+    border-radius: 0 0 0 190px;
+    @include mix.breakpoint(lg) {
+      display: none;
+    }
+  }
+}
+
+/*header-banner-section-start*/
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 726px;
+  position: relative;
+  z-index: 1;
+  @include mix.breakpoint(lg) {
+    height: 0;
+  }
+
+  .row {
+    @include mix.row;
+
+    .desktop-hide img {
+      display: none;
+      @include mix.breakpoint(sm) {
+        display: block;
+        padding-left: 20px;
+      }
+    }
+
+    .flex {
+      display: flex;
+      gap: 125px;
+      @include mix.breakpoint(lg) {
+        gap: 300px;
+        align-items: center;
+      }
+      @include mix.breakpoint(md){
+        gap: 280px;
+      }
+      @include mix.breakpoint(sm) {
+        gap: 0;
+        flex: none;
+      }
+      @include mix.breakpoint(xxs){
+        gap: 65px;
+      }
+            @include mix.breakpoint(xm){
+        gap: 0;
+      }
+    }
+
+    .logo {
+      padding-left: 10px;
+
+      @include mix.breakpoint(sm) {
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+
+    .w-flex {
+      display: flex;
+      gap: 10px;
+
+      .navigation {
+        nav {
+          ul {
+            li {
+              list-style: none;
+              display: inline-block;
+              padding-right: 40px;
+
+              @include mix.breakpoint(xxl) {
+                padding-right: 20px;
+              }
+
+              a {
+                color: var.$light;
+                transition: 0.3s;
+              }
+              @include mix.breakpoint(sm) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+
+      .header-image {
+        .fa-solid,
+        .fas {
+          font-weight: 900;
+          font-size: 20px;
+          line-height: 22px;
+          color: #fff;
+          cursor: pointer;
+          @include mix.breakpoint(sm) {
+            display: none;
+          }
+        }
+        img {
+          @include mix.breakpoint(sm) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  @include mix.container;
+  position: relative;
+  z-index: 2;
+
+  @include mix.breakpoint(md) {
+    @include mix.padding-ipad;
+  }
+  @include mix.breakpoint(sm) {
+    padding-top: 15px;
+    padding-bottom: 20px;
+  }
+
+  .row {
+    @include mix.row;
+
+    .left-content {
+
+      h1 {
+        font-size: 56px;
+        line-height: 70px;
+        color: #fff;
+        max-width: 510px;
+
+
+
+        @include mix.breakpoint(lg) {
+          text-align: center;
+          margin: 0 auto;
+        }
+        @include mix.breakpoint(xs) {
+          font-size: 48px;
+          line-height: 50px;
+        }
+        @include mix.breakpoint(xss) {
+          font-size: 34px;
+          line-height: 36px;
+        }
+      }
+
+      p {
+        @include mix.small-font;
+        max-width: 503px;
+        padding-top: 25px;
+        color: var.$light;
+        @include mix.breakpoint(lg) {
+          margin: 0 auto;
+        }
+      }
+
+      .search {
+        margin-top: 35px;
+
+        ::placeholder {
+          color: var.$light;
+        }
+
+
+
+        @include mix.breakpoint(lg) {
+          text-align: center;
+          margin: 35px auto;
+        }
+
+        @include mix.breakpoint(xxs) {
+          margin: 40px auto;
+        }
+        @include mix.breakpoint(xss) {
+          text-align: center;
+          margin: 20ṭpx auto;
+        }
+
+        input[type="search"] {
+          max-width: 339px;
+          width: 100%;
+          background: none;
+          padding: 10px 10px;
+          border: 2px solid var.$light;
+          border-radius: 23px;
+          color: var.$light;
+          margin-right: 20px;
+          outline: 0;
+          font-size: 14px;
+          line-height: 15px;
+
+          &:focus {
+            outline: 0;
+          }
+
+          @include mix.breakpoint(md) {
+            margin-right: 2px;
+          }
+          @include mix.breakpoint(xss) {
+            max-width: none;
+            width: 100%;
+
+            text-align: center;
+          }
+                    @include mix.breakpoint(xm) {
+            max-width: 300px;
+            width: 100%;
+          }
+        }
+
+        input[type="submit"] {
+          max-width: 150px;
+          width: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(51, 194, 125, 1) 0%,
+            rgba(108, 211, 88, 1) 100%
+          );
+          border-radius: 23px;
+          padding: 10px 10px;
+          color: var.$light;
+          outline: 0;
+          border: 0;
+          transition: 0.3s;
+          cursor: pointer;
+          position: relative;
+          z-index: 1;
+          transition: 0.3s;
+          border: 3px solid #6ed456;
+          @include mix.breakpoint(xm) {
+            max-width: 133px;
+            width: 100%;
+           
+          }
+
+          @include mix.breakpoint(xss) {
+            max-width: none;
+            width: 100%;
+            margin-top: 10px;
+          }
+          &:focus {
+            outline: 0;
+          }
+
+          &:hover {
+            color: var.$light;
+           background: none;
+           border: 3px solid #6ed456;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*header-banner-section-end*/
+/*box-section-start*/
+.box {
+  @include mix.container;
+
+  @include mix.breakpoint(md) {
+    @include mix.padding-ipad;
+  }
+  @include mix.breakpoint(sm) {
+    @include mix.padding;
+  }
+
+  .row {
+    @include mix.row;
+
+    .top-content {
+      @include mix.breakpoint(sm) {
+        text-align: center;
+      }
+      h3 {
+        @include mix.medium-font;
+
+        color: var.$pink;
+        @include mix.breakpoint(xxs) {
+          font-size: 18px;
+          line-height: 20px;
+        }
+      }
+
+      h4 {
+        @include mix.big-font;
+        color: var.$dark;
+        padding-top: 20px;
+      }
+    }
+
+    .box-section {
+      text-align: center;
+
+      .mrg {
+        margin: 0 -20px;
+        @include mix.breakpoint(lg){
+          margin: 0 -10px;
+        }
+
+        .four-box {
+          width: 25%;
+          float: left;
+          padding: 0 20px;
+          @include mix.breakpoint(lg) {
+            padding: 0 10px;
+          }
+          @include mix.breakpoint(md) {
+            padding: 0 10px;
+          }
+
+          @include mix.breakpoint(xxs) {
+            width: 33.33%;
+            float: left;
+            display: flex;
+            justify-content: center;
+            padding: 0 10px;
+          }
+          @include mix.breakpoint(xm) {
+            width: 50%;
+          }
+          @include mix.breakpoint(xss) {
+            width: 100%;
+          }
+
+          .box-border {
+            border: 3px solid #6ed456;
+            background: var.$grey;
+            max-width: 256px;
+            width: 100%;
+            padding: 30px 10px;
+            margin-top: 35px;
+            cursor: pointer;
+            transition: 0.3s;
+            @include mix.breakpoint(md) {
+              margin-top: 20px;
+            }
+
+            &:hover {
+              background: var.$green;
+              color: var.$light;
+
+              i {
+                color: var.$light;
+              }
+            }
+
+            i {
+              font-size: 60px;
+              line-height: 62px;
+              color: var.$box;
+            }
+
+            h6 {
+              @include mix.medium-font;
+              padding-top: 25px;
+
+              @include mix.breakpoint(sm) {
+                font-size: 18px;
+                line-height: 21px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn {
+      @include mix.breakpoint(md) {
+        width: 100%;
+        display: flex;
+      }
+      @include mix.breakpoint(xm) {
+        justify-content: center;
+      }
+
+      a {
+        @include mix.a;
+        background: linear-gradient(
+          to right,
+          rgba(51, 194, 125, 1) 0%,
+          rgba(108, 211, 88, 1) 100%
+        );
+        text-align: center;
+        transition: 0.3s;
+
+        color: var.$light;
+        margin-top: 37px;
+        transition: 0.3s;
+
+        &:hover {
+          background: linear-gradient(
+            to right,
+            rgba(63, 3, 97, 1) 2%,
+            rgba(149, 8, 86, 1) 65%
+          );
+          color: var.$light;
+        }
+      }
+    }
+  }
+}
+
+/*box-section-end*/
+/*five-section-start*/
+.five-section {
+  @include mix.container(40px);
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: cover;
+
+  .row {
+    @include mix.row;
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include mix.breakpoint(sm) {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .left-content {
+        h3 {
+          @include mix.big-font;
+          color: var.$light;
+
+          @include mix.breakpoint(xxs) {
+            font-size: 30px;
+            line-height: 32px;
+          }
+          @include mix.breakpoint(xss) {
+            font-size: 28px;
+            line-height: 30px;
+          }
+        }
+
+        p {
+          @include mix.medium-font;
+          padding-top: 25px;
+          color: var.$light;
+        }
+      }
+
+      .right-btn {
+        a {
+          background: linear-gradient(
+            to right,
+            rgba(51, 194, 125, 1) 0%,
+            rgba(108, 211, 88, 1) 100%
+          );
+          border: 3px solid #6ed456;
+          @include mix.a;
+          color: var.$light;
+          transition: 0.3s;
+          padding: 10px 40px;
+
+          &:hover {
+            color: var.$light;
+            background:none;
+            border: 3px solid #6ed456;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*five-section-end*/
+/*slider-section-start*/
+.slider-section {
+  @include mix.container;
+
+  @include mix.breakpoint(lg) {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+  @include mix.breakpoint(sm) {
+   padding-top: 30px;
+   padding-bottom: 40px;
+  }
+
+  .row {
+    @include mix.row;
+
+    .head-text {
+      @include mix.breakpoint(sm) {
+        text-align: center;
+      }
+      h3 {
+        @include mix.medium-font;
+        color: var.$primarycolor;
+        @include mix.breakpoint(sm) {
+          text-align: center;
+        }
+      }
+
+      h4 {
+        @include mix.big-font;
+        padding-top: 25px;
+        padding-bottom: 20px;
+        @include mix.breakpoint(xxs) {
+          font-size: 33px;
+          line-height: 35px;
+        }
+                @include mix.breakpoint(sm) {
+            padding-top: 20px;
+        } 
+      }
+    }
+
+    .slider-box {
+      .owl-carousel {
+        .owl-nav {
+          position: absolute;
+          top: -115px;
+          right: 40px;
+          @include mix.breakpoint(sm) {
+            top: -75px;
+            right: 15px;
+          }
+          @include mix.breakpoint(xs) {
+            display: none;
+          }
+          .owl-prev {
+            background: url(../images/previous.png) no-repeat;
+            height: 40px;
+            width: 40px;
+            margin-right: 14px;
+          }
+          .owl-next {
+            background: url(../images/next.png) no-repeat;
+            height: 40px;
+            width: 40px;
+          }
+          @include mix.breakpoint(xs) {
+            right: 0%;
+          }
+
+          span {
+            display: none;
+          }
+        }
+
+        .box-slider {
+          border: 3px solid var.$green;
+          position: relative;
+          z-index: 1;
+        }
+        .imges {
+          position: relative;
+          .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            line-height: 1px;
+            a {
+              display: inline-block;
+              transition: 0.3s;
+              &:hover {
+                i {
+                  color: #6ed456;
+                }
+              }
+              i {
+                font-size: 50px;
+                color: #fff;
+              }
+            }
+          }
+        }
+
+        .boxis {
+          width: 100%;
+          float: none;
+          /*padding: 0 20px;*/
+
+          img {
+            width: 100%;
+          }
+
+          h6 {
+            @include mix.medium-font(30px);
+            padding-top: 25px;
+            padding-left: 15px;
+            max-width: 321px;
+
+            @include mix.breakpoint(xxl) {
+              font-size: 19px;
+              line-height: 25px;
+            }
+            @include mix.breakpoint(sm) {
+              padding-top: 20px;
+            }
+
+            @include mix.breakpoint(xss) {
+              font-size: 18px;
+              line-height: 25px;
+            }
+          }
+
+          h4 {
+            @include mix.small-font;
+            padding-top: 25px;
+            padding-left: 15px;
+
+            color: var.$primarycolor;
+          }
+
+          .y-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            padding-bottom: 25px;
+            @include mix.breakpoint(sm) {
+              padding-bottom: 20px;
+            }
+
+            h3 {
+              @include mix.small-font;
+              padding-top: 25px;
+              padding-left: 15px;
+              color: #777777;
+              @include mix.breakpoint(sm) {
+                padding-top: 20px;
+              }
+            }
+
+            span {
+              @include mix.small-font;
+              padding-top: 25px;
+              padding-right: 10px;
+              color: var.$primarycolor;
+              @include mix.breakpoint(sm) {
+                padding-top: 20px;
+              }
+            }
+            a {
+              color: #777777;
+              padding-right: 5px;
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*slider-section-end*/
+/*third-section-start*/
+.third-section {
+  @include mix.container(150px);
+  background-color: var.$grey;
+  position: relative;
+
+
+    @include mix.breakpoint(xxs) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+    @include mix.breakpoint(sm) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .row {
+    @include mix.row;
+    width: 100%;
+    height: 466px;
+    position: relative;
+
+    @include mix.breakpoint(xxs) {
+      height: auto;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      background: url(../images/third-shape.png) no-repeat left top;
+      height: 466px;
+      left: 0;
+      right: 0;
+      top: 100px;
+      max-width: 500px;
+
+      @include mix.breakpoint(xxl) {
+        left: -17px;
+      }
+
+      @include mix.breakpoint(xxs) {
+        display: none;
+      }
+    }
+
+    .left-img {
+      width: 50%;
+      height: 628px;
+      position: absolute;
+      right: 50%;
+      left: 40px;
+      bottom: -65px;
+      border-radius: 0 0 0 190px;
+      z-index: 1;
+
+      @include mix.breakpoint(xxs) {
+        display: none;
+      }
+    }
+
+    .circle {
+      /*position: relative;*/
+      z-index: 1;
+      background: url(../images/circle.png) no-repeat left bottom;
+      height: 180px;
+      background-size: 100% 100%;
+      position: absolute;
+      width: 179px;
+      display: flex;
+      align-items: center;
+      bottom: -100px;
+      left: 16%;
+
+      @include mix.breakpoint(xxs) {
+        display: none;
+      }
+
+      h4 {
+        font-size: 30px;
+        line-height: 43px;
+        color: #fff;
+        text-align: center;
+        max-width: 122px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .half-section {
+    width: 50%;
+    float: right;
+    @include mix.row;
+
+    @include mix.breakpoint(md) {
+      width: 45%;
+    }
+
+    @include mix.breakpoint(xxs) {
+      width: 100%;
+      text-align: center;
+    }
+
+    .half-content {
+      h3 {
+        @include mix.medium-font;
+        color: var.$primarycolor;
+      }
+
+      h2 {
+        @include mix.big-font;
+        padding-top: 25px;
+        @include mix.breakpoint(xxs) {
+          font-size: 33px;
+          line-height: 35px;
+        }
+        @include mix.breakpoint(sm) {
+          padding-top: 20px;
+        }
+      }
+
+      p {
+        @include mix.small-font;
+        padding-top: 25px;
+        max-width: 464px;
+        color: var.$light-grey;
+
+        @include mix.breakpoint(xxs) {
+          margin: 0 auto;
+        }
+        @include mix.breakpoint(sm) {
+          padding-top: 20px;
+        }
+      }
+    }
+
+    .click {
+      display: inline-block;
+      padding-top: 29px;
+      vertical-align: middle;
+      @include mix.breakpoint(sm) {
+        padding-top: 20px;
+      }
+
+      span {
+        display: block;
+        vertical-align: middle;
+        padding-top: 10px;
+
+        &:first-child {
+          padding-top: 10px;
+        }
+
+        img {
+          padding-right: 13px;
+          vertical-align: middle;
+        }
+
+        h6 {
+          @include mix.light-font;
+          color: var.$light-grey;
+          display: inline-block;
+          vertical-align: middle;
+          @include mix.breakpoint(xxs) {
+            font-size: 14px;
+            line-height: 16px;
+          }
+        }
+      }
+    }
+
+    .a {
+      a {
+        @include mix.a;
+        background: linear-gradient(
+          to right,
+          rgba(51, 194, 125, 1) 0%,
+          rgba(108, 211, 88, 1) 100%
+        );
+        color: var.$light;
+        margin-top: 40px;
+        text-align: center;
+        display: block;
+        transition: 0.3s;
+
+        @include mix.breakpoint(xxs) {
+          margin: 20px auto;
+        }
+        &:hover {
+          color: var.$light;
+          background: linear-gradient(
+            to right,
+            rgba(63, 3, 97, 1) 2%,
+            rgba(149, 8, 86, 1) 65%
+          );
+        }
+      }
+    }
+  }
+}
+
+/*third-section-end*/
+/*first-section-start*/
+.first-section {
+  @include mix.container;
+  @include mix.breakpoint(lg) {
+    @include mix.padding-ipad;
+  }
+  @include mix.breakpoint(md) {
+    @include mix.padding-ipad;
+  }
+  @include mix.breakpoint(sm) {
+    @include mix.padding;
+  }
+
+  .row {
+    @include mix.row;
+
+    .counters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include mix.breakpoint(sm) {
+        gap: 30px;
+      }
+      @include mix.breakpoint(xs) {
+        gap: 30px;
+        flex-direction: column;
+      }
+
+      .counter {
+        display: flex;
+        gap: 18px;
+        text-align: center;
+        position: relative;
+        @include mix.breakpoint(xs) {
+          flex-direction: column;
+        }
+        @include mix.breakpoint(xxs) {
+          flex-direction: column;
+        }
+
+        span {
+          @include mix.big-font(40px, 42px);
+          color: var.$primarycolor;
+          &:after {
+            content: "+";
+            color: var.$primarycolor;
+            display: inline-block;
+          }
+        }
+
+        h6 {
+          @include mix.light-font;
+          padding-top: 5px;
+          color: var.$dark-grey;
+        }
+        .left-img {
+          text-align: center;
+          .right-txt {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*first-section-end*/
+/*six-section-start*/
+.six-section {
+  @include mix.container;
+  position: relative;
+
+  @include mix.breakpoint(md) {
+    @include mix.padding-ipad;
+  }
+  @include mix.breakpoint(sm) {
+    @include mix.padding;
+  }
+
+  .row {
+    @include mix.row;
+
+    .box-half {
+      width: 50%;
+      float: left;
+      position: relative;
+
+      @include mix.breakpoint(md) {
+        width: 45%;
+      }
+
+      @include mix.breakpoint(xxs) {
+        width: 100%;
+        text-align: center;
+      }
+
+      .right-img {
+        position: relative;
+        width: 531px;
+        height: 487px;
+        overflow: hidden;
+
+        @include mix.breakpoint(xxs) {
+          height: auto;
+        }
+
+        img {
+          position: relative;
+          height: 405px;
+
+          @include mix.breakpoint(xxl) {
+            right: 25px;
+          }
+
+          @include mix.breakpoint(xxs) {
+            display: none;
+          }
+        }
+
+        &:after {
+          position: absolute;
+          content: "";
+          background: url(../images/last-shape.png) no-repeat left top;
+          height: 487px;
+          width: 531px;
+          right: 0;
+          top: 0;
+
+          @include mix.breakpoint(xxs) {
+            display: none;
+          }
+        }
+      }
+
+      .left-content {
+        h3 {
+          @include mix.medium-font;
+          color: var.$primarycolor;
+        }
+
+        h2 {
+          @include mix.big-font;
+          padding-top: 20px;
+
+          @include mix.breakpoint(md) {
+            font-size: 28px;
+            line-height: 30px;
+          }
+          @include mix.breakpoint(xss) {
+            font-size: 24px;
+            line-height: 26px;
+          }
+        }
+
+        p {
+          @include mix.small-font;
+          padding-top: 30px;
+          max-width: 464px;
+          color: var.$light-grey;
+
+          @include mix.breakpoint(xxs) {
+            margin: 0 auto;
+          }
+          @include mix.breakpoint(sm) {
+            padding-top: 20px;
+          }
+        }
+
+        a {
+          @include mix.a;
+          text-align: center;
+          margin-top: 27px;
+          background: linear-gradient(
+            to right,
+            rgba(51, 194, 125, 1) 0%,
+            rgba(108, 211, 88, 1) 100%
+          );
+          transition: 0.3s;
+
+          &:hover {
+          background: linear-gradient(
+            to right,
+            rgba(63, 3, 97, 1) 2%,
+            rgba(149, 8, 86, 1) 65%
+          );
+            color: var.$light;
+          }
+        }
+      }
+
+      .left-p {
+        p {
+          @include mix.small-font;
+          padding-top: 23px;
+
+          @include mix.breakpoint(xxs) {
+            margin: 0 auto;
+          }
+          @include mix.breakpoint(sm) {
+            padding-top: 20px;
+          }
+        }
+
+        img {
+          padding-top: 50px;
+          @include mix.breakpoint(sm) {
+            padding-top: 20px;
+          }
+        }
+
+        span {
+          color: var.$primarycolor;
+          padding-top: 20px;
+          display: block;
+        }
+
+        .span {
+          display: flex;
+          align-items: baseline;
+
+          @include mix.breakpoint(xxs) {
+            justify-content: center;
+          }
+        }
+      }
+      .span {
+        h5 {
+          color: #777777;
+          @include mix.light-font;
+        }
+      }
+
+      .circle-06 {
+        position: absolute;
+        top: 5px;
+        right: 90px;
+
+        @include mix.breakpoint(xxl) {
+          right: 10px;
+          top: 5px;
+        }
+
+        @include mix.breakpoint(lg) {
+          right: 15px;
+        }
+
+        @include mix.breakpoint(md) {
+          @include mix.none;
+        }
+      }
+
+      .circle-01 {
+        position: absolute;
+        top: -89px;
+        right: 43%;
+
+        @include mix.breakpoint(md) {
+          @include mix.none;
+        }
+      }
+
+      .circle-03 {
+        position: absolute;
+        top: -4px;
+        left: -15%;
+
+        @include mix.breakpoint(lg) {
+          top: -6px;
+          left: -50px;
+        }
+
+        @include mix.breakpoint(md) {
+          @include mix.none;
+        }
+      }
+
+      .circle-04 {
+        position: absolute;
+        top: 53%;
+        left: -71px;
+
+        @include mix.breakpoint(lg) {
+          left: -42px;
+        }
+
+        @include mix.breakpoint(md) {
+          @include mix.none;
+        }
+      }
+
+      .circle-05 {
+        position: absolute;
+        bottom: 17px;
+        left: -1%;
+
+        @include mix.breakpoint(md) {
+          @include mix.none;
+        }
+      }
+      .circle-02{
+        img{
+          @include mix.breakpoint(sm){
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+/*six-section-end*/
+/*footer-section-start*/
+.footer {
+  background: url(../images/footer.png) no-repeat top center;
+  background-size: 100% 100%;
+  @include mix.container(40px);
+  color: var.$light;
+
+  @include mix.breakpoint(lg) {
+    background: linear-gradient(
+      to right,
+      rgba(142, 8, 87, 1) 57%,
+      rgba(64, 3, 97, 1) 91%
+    );
+  }
+  @include mix.breakpoint(sm) {
+    @include mix.padding;
+  }
+  .row {
+    @include mix.row;
+    .z-flex {
+      display: flex;
+      gap: 130px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 98px;
+      @include mix.breakpoint(lg) {
+        margin-top: 0;
+      }
+      @include mix.breakpoint(xxl) {
+        gap: 40px;
+      }
+      @include mix.breakpoint(sm) {
+        flex-direction: column;
+        margin-top: 0;
+      }
+      .ss-logo {
+        @include mix.breakpoint(sm) {
+        }
+        h6 {
+          @include mix.medium-font;
+          color: var.$light;
+          padding-top: 25px;
+
+          @include mix.breakpoint(md) {
+            font-size: 18px;
+            line-height: 20px;
+          }
+          @include mix.breakpoint(sm) {
+            padding-top: 20px;
+          }
+        }
+      }
+      .ss-icon {
+        @include mix.breakpoint(sm) {
+          order: 4;
+        }
+        a {
+          padding-right: 26px;
+          padding-top: 23px;
+          display: inline-block;
+
+          @include mix.breakpoint(md) {
+            padding-right: 10px;
+          }
+          @include mix.breakpoint(sm) {
+            padding-top: 20px;
+          }
+          &:hover {
+            color: #303030;
+          }
+        }
+      }
+      .detail {
+        @include mix.breakpoint(sm) {
+          text-align: center;
+          order: 2;
+        }
+        h6 {
+          @include mix.medium-font;
+        }
+        h5 {
+          @include mix.small-font;
+          padding-top: 18px;
+        }
+        p {
+          @include mix.small-font;
+          padding-top: 13px;
+          max-width: 173px;
+        }
+      }
+      .subscribe {
+        @include mix.breakpoint(sm) {
+          text-align: center;
+        }
+        h5 {
+          @include mix.big-font(24px, 26px);
+        }
+        p {
+          @include mix.small-font;
+          padding-top: 25px;
+        }
+        .subscribe-box {
+          color: var.$light;
+          padding-top: 23px;
+          max-width: 540px;
+          width: 100%;
+          display: flex;
+          gap: 30px;
+          @include mix.breakpoint(xxl) {
+            gap: 20px;
+          }
+          @include mix.breakpoint(xss) {
+            flex-wrap: wrap;
+            gap: 10px;
+          }
+          ::placeholder {
+            color: #fff;
+          }
+          input[type="search"] {
+            max-width: 380px;
+            width: 100%;
+            background: none;
+            border: 2px solid var.$light;
+            border-radius: 23px;
+            padding: 10px 10px;
+            color: var.$light;
+            @include mix.breakpoint(xss) {
+              text-align: center;
+            }
+            &:focus {
+              outline: 0;
+            }
+          }
+          input[type="submit"] {
+            max-width: 140px;
+            width: 100%;
+            padding: 10px 10px;
+            border-radius: 23px;
+            border: 0;
+            color: var.$light;
+            background: linear-gradient(
+              to right,
+              rgba(51, 194, 125, 1) 0%,
+              rgba(108, 211, 88, 1) 100%
+            );
+            border: 3px solid #6ed456;
+            cursor: pointer;
+            transition: 0.3s;
+
+            @include mix.breakpoint(md) {
+              max-width: 110px;
+            }
+            @include mix.breakpoint(xss) {
+              max-width: 380px;
+            }
+            &:foucs {
+              outline: 0;
+            }
+            &:hover {
+              color: var.$light;
+              background:none;
+              border: 3px solid #6ed456;
+            }
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 10px;
+    @include mix.breakpoint(xm) {
+      padding-top: 20px;
+    }
+    h5 {
+      font-size: 16px;
+      line-height: 18px;
+      @include mix.breakpoint(xm) {
+        line-height: 23px;
+      }
+    }
+  }
+}
+/*footer-section-end*/
